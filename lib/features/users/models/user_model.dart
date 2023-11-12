@@ -30,8 +30,8 @@ abstract class UserAddress with _$UserAddress {
   factory UserAddress.fromJson(Map<String, dynamic> json) =>
       _$UserAddressFromJson(json);
 
-  // не понимаю как на freezed сделать геттеры :( 
-  // String get fullUserAddress => '$street $suite $city $zipcode';
+  const UserAddress._();
+  String get fullUserAddress => '$street $suite $city $zipcode';
 }
 
 @freezed
@@ -45,5 +45,6 @@ abstract class UserCompany with _$UserCompany {
   factory UserCompany.fromJson(Map<String, dynamic> json) =>
       _$UserCompanyFromJson(json);
 
-  // String get fullUserCompany => '$name $catchPhrase $bs';
+  const UserCompany._();
+  String get fullUserCompany => '$name $catchPhrase $bs';
 }

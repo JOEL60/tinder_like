@@ -20,22 +20,21 @@ mixin _$UserState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(UserProfile usersProfiles, int selectedUserId)
-        success,
+    required TResult Function(UserProfile profile, int selectedUserId) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult? Function(UserProfile profile, int selectedUserId)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult Function(UserProfile profile, int selectedUserId)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,8 +119,7 @@ class _$UserLoadingImpl implements _UserLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(UserProfile usersProfiles, int selectedUserId)
-        success,
+    required TResult Function(UserProfile profile, int selectedUserId) success,
   }) {
     return loading();
   }
@@ -131,7 +129,7 @@ class _$UserLoadingImpl implements _UserLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult? Function(UserProfile profile, int selectedUserId)? success,
   }) {
     return loading?.call();
   }
@@ -141,7 +139,7 @@ class _$UserLoadingImpl implements _UserLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult Function(UserProfile profile, int selectedUserId)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -229,8 +227,7 @@ class _$UserErrorImpl implements _UserError {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(UserProfile usersProfiles, int selectedUserId)
-        success,
+    required TResult Function(UserProfile profile, int selectedUserId) success,
   }) {
     return error();
   }
@@ -240,7 +237,7 @@ class _$UserErrorImpl implements _UserError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult? Function(UserProfile profile, int selectedUserId)? success,
   }) {
     return error?.call();
   }
@@ -250,7 +247,7 @@ class _$UserErrorImpl implements _UserError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult Function(UserProfile profile, int selectedUserId)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -304,9 +301,9 @@ abstract class _$$UserSuccessImplCopyWith<$Res> {
           _$UserSuccessImpl value, $Res Function(_$UserSuccessImpl) then) =
       __$$UserSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserProfile usersProfiles, int selectedUserId});
+  $Res call({UserProfile profile, int selectedUserId});
 
-  $UserProfileCopyWith<$Res> get usersProfiles;
+  $UserProfileCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -320,13 +317,13 @@ class __$$UserSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? usersProfiles = null,
+    Object? profile = null,
     Object? selectedUserId = null,
   }) {
     return _then(_$UserSuccessImpl(
-      usersProfiles: null == usersProfiles
-          ? _value.usersProfiles
-          : usersProfiles // ignore: cast_nullable_to_non_nullable
+      profile: null == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
               as UserProfile,
       selectedUserId: null == selectedUserId
           ? _value.selectedUserId
@@ -337,9 +334,9 @@ class __$$UserSuccessImplCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $UserProfileCopyWith<$Res> get usersProfiles {
-    return $UserProfileCopyWith<$Res>(_value.usersProfiles, (value) {
-      return _then(_value.copyWith(usersProfiles: value));
+  $UserProfileCopyWith<$Res> get profile {
+    return $UserProfileCopyWith<$Res>(_value.profile, (value) {
+      return _then(_value.copyWith(profile: value));
     });
   }
 }
@@ -348,16 +345,16 @@ class __$$UserSuccessImplCopyWithImpl<$Res>
 
 class _$UserSuccessImpl implements _UserSuccess {
   const _$UserSuccessImpl(
-      {required this.usersProfiles, required this.selectedUserId});
+      {required this.profile, required this.selectedUserId});
 
   @override
-  final UserProfile usersProfiles;
+  final UserProfile profile;
   @override
   final int selectedUserId;
 
   @override
   String toString() {
-    return 'UserState.success(usersProfiles: $usersProfiles, selectedUserId: $selectedUserId)';
+    return 'UserState.success(profile: $profile, selectedUserId: $selectedUserId)';
   }
 
   @override
@@ -365,14 +362,13 @@ class _$UserSuccessImpl implements _UserSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserSuccessImpl &&
-            (identical(other.usersProfiles, usersProfiles) ||
-                other.usersProfiles == usersProfiles) &&
+            (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.selectedUserId, selectedUserId) ||
                 other.selectedUserId == selectedUserId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, usersProfiles, selectedUserId);
+  int get hashCode => Object.hash(runtimeType, profile, selectedUserId);
 
   @JsonKey(ignore: true)
   @override
@@ -385,10 +381,9 @@ class _$UserSuccessImpl implements _UserSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function() error,
-    required TResult Function(UserProfile usersProfiles, int selectedUserId)
-        success,
+    required TResult Function(UserProfile profile, int selectedUserId) success,
   }) {
-    return success(usersProfiles, selectedUserId);
+    return success(profile, selectedUserId);
   }
 
   @override
@@ -396,9 +391,9 @@ class _$UserSuccessImpl implements _UserSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function()? error,
-    TResult? Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult? Function(UserProfile profile, int selectedUserId)? success,
   }) {
-    return success?.call(usersProfiles, selectedUserId);
+    return success?.call(profile, selectedUserId);
   }
 
   @override
@@ -406,11 +401,11 @@ class _$UserSuccessImpl implements _UserSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function()? error,
-    TResult Function(UserProfile usersProfiles, int selectedUserId)? success,
+    TResult Function(UserProfile profile, int selectedUserId)? success,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(usersProfiles, selectedUserId);
+      return success(profile, selectedUserId);
     }
     return orElse();
   }
@@ -452,10 +447,10 @@ class _$UserSuccessImpl implements _UserSuccess {
 
 abstract class _UserSuccess implements UserState {
   const factory _UserSuccess(
-      {required final UserProfile usersProfiles,
+      {required final UserProfile profile,
       required final int selectedUserId}) = _$UserSuccessImpl;
 
-  UserProfile get usersProfiles;
+  UserProfile get profile;
   int get selectedUserId;
   @JsonKey(ignore: true)
   _$$UserSuccessImplCopyWith<_$UserSuccessImpl> get copyWith =>
@@ -488,21 +483,21 @@ mixin _$UserEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UserEvent value) getUser,
+    required TResult Function(_GetUserEvent value) getUser,
     required TResult Function(_UserPreviousEvent value) previous,
     required TResult Function(_UserNextEvent value) next,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserEvent value)? getUser,
+    TResult? Function(_GetUserEvent value)? getUser,
     TResult? Function(_UserPreviousEvent value)? previous,
     TResult? Function(_UserNextEvent value)? next,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserEvent value)? getUser,
+    TResult Function(_GetUserEvent value)? getUser,
     TResult Function(_UserPreviousEvent value)? previous,
     TResult Function(_UserNextEvent value)? next,
     required TResult orElse(),
@@ -528,20 +523,20 @@ class _$UserEventCopyWithImpl<$Res, $Val extends UserEvent>
 }
 
 /// @nodoc
-abstract class _$$UserEventImplCopyWith<$Res> {
-  factory _$$UserEventImplCopyWith(
-          _$UserEventImpl value, $Res Function(_$UserEventImpl) then) =
-      __$$UserEventImplCopyWithImpl<$Res>;
+abstract class _$$GetUserEventImplCopyWith<$Res> {
+  factory _$$GetUserEventImplCopyWith(
+          _$GetUserEventImpl value, $Res Function(_$GetUserEventImpl) then) =
+      __$$GetUserEventImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int userId});
 }
 
 /// @nodoc
-class __$$UserEventImplCopyWithImpl<$Res>
-    extends _$UserEventCopyWithImpl<$Res, _$UserEventImpl>
-    implements _$$UserEventImplCopyWith<$Res> {
-  __$$UserEventImplCopyWithImpl(
-      _$UserEventImpl _value, $Res Function(_$UserEventImpl) _then)
+class __$$GetUserEventImplCopyWithImpl<$Res>
+    extends _$UserEventCopyWithImpl<$Res, _$GetUserEventImpl>
+    implements _$$GetUserEventImplCopyWith<$Res> {
+  __$$GetUserEventImplCopyWithImpl(
+      _$GetUserEventImpl _value, $Res Function(_$GetUserEventImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -549,7 +544,7 @@ class __$$UserEventImplCopyWithImpl<$Res>
   $Res call({
     Object? userId = null,
   }) {
-    return _then(_$UserEventImpl(
+    return _then(_$GetUserEventImpl(
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -560,8 +555,8 @@ class __$$UserEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserEventImpl implements _UserEvent {
-  const _$UserEventImpl({required this.userId});
+class _$GetUserEventImpl implements _GetUserEvent {
+  const _$GetUserEventImpl({required this.userId});
 
   @override
   final int userId;
@@ -575,7 +570,7 @@ class _$UserEventImpl implements _UserEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserEventImpl &&
+            other is _$GetUserEventImpl &&
             (identical(other.userId, userId) || other.userId == userId));
   }
 
@@ -585,8 +580,8 @@ class _$UserEventImpl implements _UserEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserEventImplCopyWith<_$UserEventImpl> get copyWith =>
-      __$$UserEventImplCopyWithImpl<_$UserEventImpl>(this, _$identity);
+  _$$GetUserEventImplCopyWith<_$GetUserEventImpl> get copyWith =>
+      __$$GetUserEventImplCopyWithImpl<_$GetUserEventImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -625,7 +620,7 @@ class _$UserEventImpl implements _UserEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UserEvent value) getUser,
+    required TResult Function(_GetUserEvent value) getUser,
     required TResult Function(_UserPreviousEvent value) previous,
     required TResult Function(_UserNextEvent value) next,
   }) {
@@ -635,7 +630,7 @@ class _$UserEventImpl implements _UserEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserEvent value)? getUser,
+    TResult? Function(_GetUserEvent value)? getUser,
     TResult? Function(_UserPreviousEvent value)? previous,
     TResult? Function(_UserNextEvent value)? next,
   }) {
@@ -645,7 +640,7 @@ class _$UserEventImpl implements _UserEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserEvent value)? getUser,
+    TResult Function(_GetUserEvent value)? getUser,
     TResult Function(_UserPreviousEvent value)? previous,
     TResult Function(_UserNextEvent value)? next,
     required TResult orElse(),
@@ -657,12 +652,12 @@ class _$UserEventImpl implements _UserEvent {
   }
 }
 
-abstract class _UserEvent implements UserEvent {
-  const factory _UserEvent({required final int userId}) = _$UserEventImpl;
+abstract class _GetUserEvent implements UserEvent {
+  const factory _GetUserEvent({required final int userId}) = _$GetUserEventImpl;
 
   int get userId;
   @JsonKey(ignore: true)
-  _$$UserEventImplCopyWith<_$UserEventImpl> get copyWith =>
+  _$$GetUserEventImplCopyWith<_$GetUserEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -738,7 +733,7 @@ class _$UserPreviousEventImpl implements _UserPreviousEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UserEvent value) getUser,
+    required TResult Function(_GetUserEvent value) getUser,
     required TResult Function(_UserPreviousEvent value) previous,
     required TResult Function(_UserNextEvent value) next,
   }) {
@@ -748,7 +743,7 @@ class _$UserPreviousEventImpl implements _UserPreviousEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserEvent value)? getUser,
+    TResult? Function(_GetUserEvent value)? getUser,
     TResult? Function(_UserPreviousEvent value)? previous,
     TResult? Function(_UserNextEvent value)? next,
   }) {
@@ -758,7 +753,7 @@ class _$UserPreviousEventImpl implements _UserPreviousEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserEvent value)? getUser,
+    TResult Function(_GetUserEvent value)? getUser,
     TResult Function(_UserPreviousEvent value)? previous,
     TResult Function(_UserNextEvent value)? next,
     required TResult orElse(),
@@ -846,7 +841,7 @@ class _$UserNextEventImpl implements _UserNextEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_UserEvent value) getUser,
+    required TResult Function(_GetUserEvent value) getUser,
     required TResult Function(_UserPreviousEvent value) previous,
     required TResult Function(_UserNextEvent value) next,
   }) {
@@ -856,7 +851,7 @@ class _$UserNextEventImpl implements _UserNextEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_UserEvent value)? getUser,
+    TResult? Function(_GetUserEvent value)? getUser,
     TResult? Function(_UserPreviousEvent value)? previous,
     TResult? Function(_UserNextEvent value)? next,
   }) {
@@ -866,7 +861,7 @@ class _$UserNextEventImpl implements _UserNextEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_UserEvent value)? getUser,
+    TResult Function(_GetUserEvent value)? getUser,
     TResult Function(_UserPreviousEvent value)? previous,
     TResult Function(_UserNextEvent value)? next,
     required TResult orElse(),

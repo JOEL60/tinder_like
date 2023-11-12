@@ -416,12 +416,13 @@ class __$$UserAddressImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable()
-class _$UserAddressImpl implements _UserAddress {
+class _$UserAddressImpl extends _UserAddress {
   _$UserAddressImpl(
       {required this.street,
       required this.suite,
       required this.city,
-      required this.zipcode});
+      required this.zipcode})
+      : super._();
 
   factory _$UserAddressImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserAddressImplFromJson(json);
@@ -469,12 +470,13 @@ class _$UserAddressImpl implements _UserAddress {
   }
 }
 
-abstract class _UserAddress implements UserAddress {
+abstract class _UserAddress extends UserAddress {
   factory _UserAddress(
       {required final String street,
       required final String suite,
       required final String city,
       required final String zipcode}) = _$UserAddressImpl;
+  _UserAddress._() : super._();
 
   factory _UserAddress.fromJson(Map<String, dynamic> json) =
       _$UserAddressImpl.fromJson;
@@ -598,9 +600,10 @@ class __$$UserCompanyImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable()
-class _$UserCompanyImpl implements _UserCompany {
+class _$UserCompanyImpl extends _UserCompany {
   _$UserCompanyImpl(
-      {required this.name, required this.catchPhrase, required this.bs});
+      {required this.name, required this.catchPhrase, required this.bs})
+      : super._();
 
   factory _$UserCompanyImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserCompanyImplFromJson(json);
@@ -646,11 +649,12 @@ class _$UserCompanyImpl implements _UserCompany {
   }
 }
 
-abstract class _UserCompany implements UserCompany {
+abstract class _UserCompany extends UserCompany {
   factory _UserCompany(
       {required final String name,
       required final String catchPhrase,
       required final String bs}) = _$UserCompanyImpl;
+  _UserCompany._() : super._();
 
   factory _UserCompany.fromJson(Map<String, dynamic> json) =
       _$UserCompanyImpl.fromJson;

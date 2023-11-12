@@ -1,29 +1,30 @@
 import 'package:equatable/equatable.dart';
-import 'package:tinder_like/data/api_rest/api_rest.dart';
+import 'package:tinder_like/features/user_photos/models/user_photos.dart';
 
-abstract class GetUserPhotosState extends Equatable {
-  const GetUserPhotosState();
-  
+abstract class UserPhotosState extends Equatable {
+  const UserPhotosState();
+}
+
+class UserPhotosLoading extends UserPhotosState {
   @override
   List<Object> get props => [];
 }
 
-class GetUserPhotosLoading extends GetUserPhotosState {}
-
-class GetUserPhotosSuccess extends GetUserPhotosState {
+class UserPhotosSuccess extends UserPhotosState {
   final List<UserPhotos> photos;
-  
-  const GetUserPhotosSuccess(this.photos);
-  
+  final int selectedPhotosId;
+
+  const UserPhotosSuccess(this.photos, this.selectedPhotosId);
+
   @override
-  List<Object> get props => [photos];
+  List<Object> get props => [photos, selectedPhotosId];
 }
 
-class GetUserPhotosFailure extends GetUserPhotosState {
+class UserPhotosFailure extends UserPhotosState {
   final String error;
-  
-  const GetUserPhotosFailure(this.error);
-  
+
+  const UserPhotosFailure(this.error);
+
   @override
   List<Object> get props => [error];
 }

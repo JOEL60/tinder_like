@@ -3,19 +3,6 @@
 part of 'api_rest.dart';
 
 // **************************************************************************
-// JsonSerializableGenerator
-// **************************************************************************
-
-UserPhotos _$UserPhotosFromJson(Map<String, dynamic> json) => UserPhotos(
-      url: json['url'] as String,
-    );
-
-Map<String, dynamic> _$UserPhotosToJson(UserPhotos instance) =>
-    <String, dynamic>{
-      'url': instance.url,
-    };
-
-// **************************************************************************
 // RetrofitGenerator
 // **************************************************************************
 
@@ -32,7 +19,7 @@ class _ApiRest implements ApiRest {
   String? baseUrl;
 
   @override
-  Future<UserProfile> getUsers({required int userId}) async {
+  Future<UserProfile> getUser({required int userId}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

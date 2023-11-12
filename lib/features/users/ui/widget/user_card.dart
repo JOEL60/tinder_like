@@ -34,11 +34,11 @@ class UserProfileCard extends StatelessWidget {
                 style: const TextStyle(fontSize: 16),
               ),
               Text(
-                userProfile.address.city,
+                userProfile.address.fullUserAddress,
                 style: const TextStyle(fontSize: 16),
               ),
               Text(
-                userProfile.company.name,
+                userProfile.company.fullUserCompany,
                 style: const TextStyle(fontSize: 16),
               ),
             ],

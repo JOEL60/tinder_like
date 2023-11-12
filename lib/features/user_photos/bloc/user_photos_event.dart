@@ -1,10 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-class GetUserPhotosEvent extends Equatable {
-  final int albumId;
+class UserPhotosEvent extends Equatable {
+  final int? albumId;
 
-  const GetUserPhotosEvent({required this.albumId});
+  const UserPhotosEvent({this.albumId});
 
   @override
-  List<Object> get props => [albumId];
+  List<Object?> get props => [albumId];
+}
+
+class NextProfilePhoto extends UserPhotosEvent {
+  const NextProfilePhoto() : super();
+}
+
+class PreviousProfilePhoto extends UserPhotosEvent {
+  const PreviousProfilePhoto() : super();
 }

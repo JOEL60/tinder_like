@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:tinder_like/data/api_rest/api_rest.dart';
+import 'package:tinder_like/features/user_photos/models/user_photos.dart';
 
 class Photos extends StatelessWidget {
   final List<UserPhotos> photos;
